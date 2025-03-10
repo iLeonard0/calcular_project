@@ -2,6 +2,7 @@ import './App.css'
 import Header from './components/header/Header'
 import PostList from './components/postList/PostList'
 import Footer from './components/footer/Footer'
+import SideBox from './components/sideBox/SideBox'
 
 function App() {
 
@@ -10,8 +11,7 @@ function App() {
       <Header />
       <section style={{ display: "flex" }}>
         <PostList />
-        <div style={{ backgroundColor: 'purple', width: '50%', height: 1000 }}>
-        </div>
+        <SideBox/>
       </section>
       <Footer />
     </div>
