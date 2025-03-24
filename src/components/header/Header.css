@@ -22,6 +22,6 @@
 
 .date-bar {
   margin-left: auto;
-  display: flex; /* opcional, se precisar alinhar o conteúdo interno */
+  display: flex; 
 }
   

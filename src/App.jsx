@@ -9,11 +9,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <section style={{ display: "flex" }}>
+      <section style={{ display: "flex", gap: '50px' }}>
         <PostList />
-        <SideBox/>
+        <SideBox />
       </section>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

@@ -13,8 +13,8 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer className="footer">
-      <p>{currentYear} - Exemplo de Página em React</p>
+    <footer className="footer" style={{display:"flex", textAlign:"center", justifyContent:'center'}}>
+      <p>{currentYear} - Calcular Project - Student: Leonardo Folle</p>
     </footer>
   );
 }
