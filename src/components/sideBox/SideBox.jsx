@@ -7,33 +7,56 @@ export default function SideBox() {
   const [response, setResponse] = useState("");
 
   const handleValidate = () => {
-    const correctAnswer = eval(`${question.num1} ${question.operator} ${question.num2}`);
+    const correctAnswer = calculateAnswer(question.num1, question.num2, question.operator);
     if (parseInt(response) === correctAnswer) {
       alert("Resposta correta!");
       setScore(score + 10);
-      generateNewQuestion(); 
+      generateNewQuestion();
     } else {
       alert("Resposta incorreta. Tente novamente!");
     }
   };
 
+  const calculateAnswer = (num1, num2, operator) => {
+    switch (operator) {
+      case "+":
+        return num1 + num2;
+      case "-":
+        return num1 - num2;
+      case "*":
+        return num1 * num2;
+      case "/":
+        return Math.floor(num1 / num2); 
+      default:
+        return 0;
+    }
+  };
+
   const generateNewQuestion = () => {
     const operators = ["+", "-", "*", "/"];
-    const randomOperator = operators[Math.floor(Math.random() * operators.length)];
-    const num1 = Math.floor(Math.random() * 100);
-    const num2 = Math.floor(Math.random() * 100);
+    let randomOperator = operators[Math.floor(Math.random() * operators.length)];
+    let num1 = Math.floor(Math.random() * 100);
+    let num2 = Math.floor(Math.random() * 100);
+
+    if (randomOperator === "/") {
+      while (num2 === 0 || num1 % num2 !== 0) {
+        num1 = Math.floor(Math.random() * 100);
+        num2 = Math.floor(Math.random() * 100);
+      }
+    }
+
     setQuestion({ num1, num2, operator: randomOperator });
-    setResponse(""); 
+    setResponse("");
   };
 
   const handleNewGame = () => {
     setScore(0);
-    generateNewQuestion(); 
+    generateNewQuestion();
   };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      handleValidate(); 
+      handleValidate();
     }
   };
 

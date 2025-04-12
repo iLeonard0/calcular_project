@@ -7,9 +7,9 @@ import SideBox from './components/sideBox/SideBox'
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" style={{ width: '100%', height: '100vh', boxSizing: 'border-box' }}>
       <Header />
-      <section style={{ display: "flex", gap: '50px' }}>
+      <section style={{ display: "flex", gap: '50px', width: '100%' }}>
         <PostList />
         <SideBox />
       </section>
